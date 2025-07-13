@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Just One Question</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #f9d5ec, #d6c9ff);
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 60px;
+      font-size: 2.8em;
+      color: #8b008b;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.7;
+      color: #4b004b;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    #yesBtn {
+      background-color: #ff8cbf;
+      color: white;
+    }
+    #yesBtn:hover {
+      background-color: #ff5ea2;
+    }
+    #thinkBtn {
+      background-color: #d3bfff;
+      color: white;
+    }
+    #thinkBtn:hover {
+      background-color: #b39bff;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 24px;
+      animation: float 8s infinite ease-in;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="mainContent">
+    <h1>Would you be my girlfriend?</h1>
+    <p>
+      Hey you<br><br>
+
+      I know things haven’t been easy to decide<br>
+      I know your heart has its reasons and its fears<br><br>
+
+      But I want you to know this<br>
+      I’m not rushing you<br>
+      I’m not trying to push you<br><br>
+
+      I’m just here… patiently, gently, honestly<br>
+      Waiting for the moment when you’re ready<br>
+      Not because I need an answer now<br>
+      But because I already know what I feel<br><br>
+
+      You matter to me more than you can imagine<br>
+      Your voice, your eyes, the way you laugh<br>
+      The way you care even when you’re scared<br><br>
+
+      I’ve thought about this a lot<br>
+      And I wanted to find the most sincere way to ask<br><br>
+
+      Not with pressure<br>
+      Not with expectations<br>
+      Just with my heart<br><br>
+
+      So… when you're ready to decide<br>
+      I’ll be right here, waiting with open arms
+    </p>
+
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="thinkBtn">I'll think about it</button>
+    </div>
+  </div>
+
+  <div class="hearts" id="heartsContainer"></div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const thinkBtn = document.getElementById('thinkBtn');
+    const content = document.getElementById('mainContent');
+
+    yesBtn.onclick = () => {
+      content.innerHTML = `
+        <h1>You just made my heart complete 💞</h1>
+        <p>
+          my love you just said yes and with that single word you gave me a universe i don’t think you’ll ever fully understand what this means to me it’s not just that you agreed to be with me it’s that you chose me you saw my soul my flaws my fears and still you said yes and that to me is the most beautiful kind of love there is i’ve waited for this moment with hope in my chest and now that it’s here i want to promise you a few things not just in words but with every action every day every heartbeat i promise to be patient with your silences to celebrate your joys and to stand by your side when things feel heavy i promise to be loyal not just in body but in mind in heart and in soul i promise to always tell you the truth even when it’s hard i promise to never cheat never lie and never let the fire between us fade away you’re not just a girl i like you’re the peace i feel when the world is loud you’re the reason my thoughts get softer my days get lighter and my future starts to look like a place i want to run toward your smile is my sunrise your laugh is my favorite melody your heart your heart is home and now that you’ve opened it to me i will guard it gently with all the love i’ve ever been capable of giving i don’t want perfect days i want real ones i want to argue sometimes and still hold your hand after i want to support you when you feel strong and carry you when you feel weak i want your good days your tired days your everything because i’m not here just for the moments when it’s easy i’m here for all of it for all of you so thank you for choosing me i’ll never make you regret it from now on you are no longer alone because we are a we and i swear with everything i am i will love you gently and completely for as long as you’ll let me and i promise i will always be here for you even in your darkest moments even when you’re afraid even when you’re tired of everything i will never walk away i will never stop loving you i will never let you go
+        </p>
+      `;
+    };
+
+    thinkBtn.onclick = () => {
+      content.innerHTML = `
+        <h1>Take all the time you need 🌸</h1>
+        <p>
+          I understand your heart and your fears<br>
+          I will wait for you no matter how long it takes<br>
+          You are worth every second of patience<br><br>
+          Just knowing you’re considering it already means the world to me
+        </p>
+      `;
+    };
+
+    // Floating hearts animation
+    const hearts = document.getElementById('heartsContainer');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 4 + Math.random() * 5 + 's';
+      heart.innerHTML = '💗';
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
